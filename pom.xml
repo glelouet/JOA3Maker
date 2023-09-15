@@ -1,0 +1,45 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>joa3maker</artifactId>
+	<name>JOA3Maker</name>
+
+	<parent>
+		<groupId>fr.lelouet</groupId>
+		<artifactId>common-maven</artifactId>
+		<version>0.0.13</version>
+	</parent>
+
+
+	<properties>
+		<jackson-version>2.9.10</jackson-version>
+	</properties>
+	<version>0.0.1</version>
+	<packaging>pom</packaging>
+	<modules>
+		<module>JOA3Libs</module>
+		<module>JOA3Compiler</module>
+		<module>JOA3Examples</module>
+	</modules>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>fr.lelouet.joa3maker</groupId>
+				<artifactId>JOA3Libs</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>fr.lelouet.joa3maker</groupId>
+					<artifactId>JOA3Compiler</artifactId>
+					<version>${project.version}</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>

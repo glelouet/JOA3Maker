@@ -1,0 +1,37 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>fr.lelouet.joa3maker</groupId>
+		<artifactId>JOA3Examples</artifactId>
+		<version>0.0.1</version>
+	</parent>
+	<groupId>fr.lelouet.joa3maker.examples</groupId>
+	<artifactId>JOA3Twitter</artifactId>
+	<name>JOA3 Twitter example</name>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>fr.lelouet.joa3maker</groupId>
+				<artifactId>JOA3Compiler</artifactId>
+				<executions>
+					<execution>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>compile</goal>
+						</goals>
+						<configuration>
+							<specs>
+								<spec>
+									<url>https://raw.githubusercontent.com/fa0311/twitter-openapi/main/dist/docs/openapi-3.0.yaml</url>
+									<pck>x.twitter</pck>
+								</spec>
+							</specs>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
