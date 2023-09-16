@@ -49,11 +49,18 @@ public class CompileOAIMojo extends AbstractMojo {
 	 * directory to export the compiled java classes
 	 */
 	@Parameter(property = "oai-compiler.outDir", defaultValue = "${project.basedir}/src/generated/java")
-	private String outFile;
+	private String outDir;
+
+	@Parameter(property = "oai-compiler.delOutDir", defaultValue = "true")
+	private boolean deleteOutDir = true;
 
 	@Override
 	public void execute() throws MojoExecutionException, MojoFailureException {
-		File targetDir = new File(outFile);
+		File targetDir = new File(outDir);
+		if(targetDir.exists() && deleteOutDir) {
+			if (!rmDir(targetDir))
+				throw new MojoFailureException("can't clean dir " + targetDir);
+		}
 		if (!targetDir.exists() && !targetDir.mkdirs())
 			throw new MojoFailureException("can't create dirs for " + targetDir);
 		List<OAISpec> specsl = new ArrayList<>();
@@ -108,6 +115,17 @@ public class CompileOAIMojo extends AbstractMojo {
 		ArrayList<String> hostTokens = new ArrayList<>(Arrays.asList(host.split("\\.")));
 		Collections.reverse(hostTokens);
 		return hostTokens.stream().collect(Collectors.joining(".")) + subs.replaceAll("/", ".");
+	}
+
+	static boolean rmDir(File dir) {
+		for (File f : dir.listFiles()) {
+			if (f.isDirectory()) {
+				if (!rmDir(f))
+					return false;
+			} else if (!f.delete())
+				return false;
+		}
+		return dir.delete();
 	}
 
 }
