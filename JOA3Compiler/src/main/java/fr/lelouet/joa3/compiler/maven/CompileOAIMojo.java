@@ -1,10 +1,12 @@
-package fr.lelouet.jswaggermaker3.compiler.maven;
+package fr.lelouet.joa3.compiler.maven;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -15,6 +17,8 @@ import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 
 import edu.emory.mathcs.backport.java.util.Collections;
+import fr.lelouet.joa3.compiler.OAICompiler;
+import fr.lelouet.joa3.compiler.OAICompiler.Config;
 import io.swagger.parser.OpenAPIParser;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.servers.Server;
@@ -41,8 +45,17 @@ public class CompileOAIMojo extends AbstractMojo {
 	@Parameter(property = "oai-compiler.specs")
 	private OAISpec[] specs;
 
+	/**
+	 * directory to export the compiled java classes
+	 */
+	@Parameter(property = "oai-compiler.outDir", defaultValue = "${project.basedir}/src/generated/java")
+	private String outFile;
+
 	@Override
 	public void execute() throws MojoExecutionException, MojoFailureException {
+		File targetDir = new File(outFile);
+		if (!targetDir.exists() && !targetDir.mkdirs())
+			throw new MojoFailureException("can't create dirs for " + targetDir);
 		List<OAISpec> specsl = new ArrayList<>();
 		if (url != null) {
 			OAISpec sp = new OAISpec();
@@ -78,6 +91,13 @@ public class CompileOAIMojo extends AbstractMojo {
 				throw new MojoFailureException("package " + pck + " deduced for spec at url " + spec.url + " is already used");
 			}
 			System.out.println("generating packages to urls : " + package2URL);
+		}
+		for (Entry<String, OpenAPI> e : package2Spec.entrySet()) {
+			OAICompiler.Config cf = new Config();
+			cf.pck = e.getKey();
+			cf.oai = e.getValue();
+			cf.targetDir = targetDir;
+			OAICompiler.compile(cf);
 		}
 	}
 

@@ -1,9 +1,11 @@
-package fr.lelouet.jswaggermaker3.compiler.maven;
+package fr.lelouet.joa3.compiler.maven;
 
 import java.net.MalformedURLException;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import fr.lelouet.joa3.compiler.maven.CompileOAIMojo;
 
 public class CompileOAIMojoTest {
 

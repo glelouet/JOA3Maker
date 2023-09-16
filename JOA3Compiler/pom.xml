@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>fr.lelouet</groupId>
-		<artifactId>joa3maker</artifactId>
+		<artifactId>joa3</artifactId>
 		<version>0.0.1</version>
 	</parent>
-	<groupId>fr.lelouet.joa3maker</groupId>
+	<groupId>fr.lelouet.joa3</groupId>
 	<artifactId>JOA3Compiler</artifactId>
-	<name>JOA3Maker Compiler</name>
+	<name>JOA3 Compiler</name>
 	<description>compiles a openapi resource as a java client</description>
 	<packaging>maven-plugin</packaging>
 	<dependencies>

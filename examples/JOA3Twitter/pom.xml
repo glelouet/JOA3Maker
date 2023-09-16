@@ -3,17 +3,17 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>fr.lelouet.joa3maker</groupId>
-		<artifactId>JOA3Examples</artifactId>
+		<groupId>fr.lelouet.joa3</groupId>
+		<artifactId>examples</artifactId>
 		<version>0.0.1</version>
 	</parent>
-	<groupId>fr.lelouet.joa3maker.examples</groupId>
+	<groupId>fr.lelouet.joa3.examples</groupId>
 	<artifactId>JOA3Twitter</artifactId>
 	<name>JOA3 Twitter example</name>
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>fr.lelouet.joa3maker</groupId>
+				<groupId>fr.lelouet.joa3</groupId>
 				<artifactId>JOA3Compiler</artifactId>
 				<executions>
 					<execution>

@@ -1,4 +1,4 @@
-package fr.lelouet.jswaggermaker3.compiler.maven;
+package fr.lelouet.joa3.compiler.maven;
 
 
 public class OAISpec {

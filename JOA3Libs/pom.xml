@@ -2,11 +2,11 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>fr.lelouet</groupId>
-    <artifactId>joa3maker</artifactId>
+    <artifactId>joa3</artifactId>
     <version>0.0.1</version>
   </parent>
-  <groupId>fr.lelouet.joa3maker</groupId>
+  <groupId>fr.lelouet.joa3</groupId>
   <artifactId>JOA3Libs</artifactId>
-  <name>JOA3Maker Libs</name>
+  <name>JOA3 Libs</name>
   <description>project required as dependency to use the classes produced by the compiler</description>
 </project>
