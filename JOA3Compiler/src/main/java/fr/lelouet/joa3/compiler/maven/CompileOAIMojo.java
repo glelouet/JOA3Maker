@@ -3,6 +3,7 @@ package fr.lelouet.joa3.compiler.maven;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,7 +17,6 @@ import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 
-import edu.emory.mathcs.backport.java.util.Collections;
 import fr.lelouet.joa3.compiler.OAICompiler;
 import fr.lelouet.joa3.compiler.OAICompiler.Config;
 import io.swagger.parser.OpenAPIParser;
