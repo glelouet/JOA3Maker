@@ -7,13 +7,9 @@
 	<parent>
 		<groupId>fr.lelouet</groupId>
 		<artifactId>common-maven</artifactId>
-		<version>0.0.14</version>
+		<version>0.0.15</version>
 	</parent>
 
-
-	<properties>
-		<jackson-version>2.9.10</jackson-version>
-	</properties>
 	<version>0.0.1</version>
 	<packaging>pom</packaging>
 	<modules>
